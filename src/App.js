@@ -1,25 +1,31 @@
+<<<<<<< HEAD
 import logo from "./logo.svg";
 import "./App.css";
 
+=======
+import React, { useState } from 'react'
+import './style.css'
+>>>>>>> 0533b3e10c8eb8ae8ba775ec1021fe32a41bf0e9
 function App() {
+  const [name,setName]=useState('');
+  const [email,setEmail]=useState('');
+  //const [flag,setFlag]=useState(false);
+  const handleSubmit=(e)=>{
+    e.preventDefault();
+    alert("you'v submitted the form")
+    setName('');
+    setEmail('');
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <form className="form" onSubmit={handleSubmit}>
+      <input type="text" name='name' placeholder='Enter Your Name' value={name} onChange={(e)=>setName(e.target.value)}/>
+      <br /><br />
+      <input type="text" name='email' placeholder='Enter your Email' value={email} onChange={(e)=>setEmail(e.target.value)} />
+      <br /><br />
+      <input type="submit" value="Submit"/>
+    </form>
     </div>
   );
 }
-
-export default App;
+export default App
